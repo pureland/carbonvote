@@ -16,13 +16,13 @@ let options = Object.assign({redis: redis}, config)
 
 // bootstrap node
 let node = new Node(options)
-if (process.env.POLL === 'true') {
+if (process.env.POLL = 'true') {
   node.init()
 }
 
 // bootstrap web server
 let web = new Web(options)
-if (process.env.WEB == 'true') {
+if (process.env.WEB = 'true') {
   web.init()
 }
 

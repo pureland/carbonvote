@@ -41,19 +41,24 @@
     </div>
 
     <div class="address">
-      <p class="yes"><strong>Vote YES:</strong> <a class="" target="_blank" href="http://etherscan.io/address/<%= yesContractAddress %>"><code><%= yesContractAddress %></code></a></p>
-      <p class="no"><strong>Vote NO:</strong> <a class="" target="_blank" href="http://etherscan.io/address/<%= noContractAddress %>"><code><%= noContractAddress %></code></a></p>
+      <p class="op1"><strong>op1:</strong> <a class="" target="_blank" href="http://etherscan.io/address/<%= option_address.op1 %>"><code><%= yesContractAddress %></code></a></p>
+      <p class="op2"><strong>op2 NO:</strong> <a class="" target="_blank" href="http://etherscan.io/address/<%= option_address.op2 %>"><code><%= noContractAddress %></code></a></p>
+      <p class="op2"><strong>op2 NO:</strong> <a class="" target="_blank" href="http://etherscan.io/address/<%= option_address.op3 %>"><code><%= noContractAddress %></code></a></p>
     </div>
 
     <div class="status">
       <div class="item">
-        <h2 class="caption yes">YES</h2>
-        <p class="amount">Ether: <%= yesVote %></p>
+        <h2 class="op1">"op1"</h2>
+        <p class="amount">Ether: <%= voteAmount[0] %></p>
       </div>
 
       <div class="item">
-        <h2 class="caption no">NO</h2>
-        <p class="amount">Ether: <%= noVote %></p>
+        <h2 class="op2">"op2"</h2>
+        <p class="amount">Ether: <%= voteAmount[1] %></p>
+      </div>
+      <div class="item">
+        <h2 class="op3">"op3"</h2>
+        <p class="amount">Ether: <%= voteAmount[2] %></p>
       </div>
     </div>
 
@@ -71,7 +76,7 @@
   <section class="transactions">
     <nav class="yes">
       <ol>
-        <% yesTx.forEach(function(tx) { %>
+        <% TxArr[0].forEach(function(tx) { %>
         <li><a class="hash" target="_blank" href="http://etherscan.io/tx/<%= tx %>"><%= tx %></a></li>
         <% }); %>
       </ol>
@@ -79,14 +84,21 @@
 
     <nav class="no">
       <ol>
-        <% noTx.forEach(function(tx) { %>
+        <% TxArr[1].forEach(function(tx) { %>
+        <li><a class="hash" target="_blank" href="http://etherscan.io/tx/<%= tx %>"><%= tx %></a></li>
+        <% }); %>
+      </ol>
+    </nav>
+    <nav class="no">
+      <ol>
+        <% TxArr[2].forEach(function(tx) { %>
         <li><a class="hash" target="_blank" href="http://etherscan.io/tx/<%= tx %>"><%= tx %></a></li>
         <% }); %>
       </ol>
     </nav>
   </section>
 
-  <div class="view-more">
+<!--  <div class="view-more">
     <% if (yesTx.length) { %>
     <a class="transactions-more" target="_blank" href="http://etherscan.io/address/<%= yesContractAddress %>">View More</a>
     <% } %>
@@ -103,7 +115,7 @@
       <li><%= key %>: <a href="http://etherscan.io/address/<%= blackList[key] %>"><%= blackList[key] %></a></li>
 
       <% } %>
-    </ul>
+    </ul>-->
   <article class="rhythm" id="">
 
   <article class="rhythm" id="">
