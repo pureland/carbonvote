@@ -59,6 +59,7 @@
     <%for(let i=0;i<option_address.length;i++){%>
     <nav class="yes">
       <ol>
+        <strong><%='op'+i%></strong>
         <% voteTxList[i].forEach(function(tx) { %>
         <li><a class="hash" target="_blank" href="http://etherscan.io/tx/<%= tx %>"><%= tx %></a></li>
         <% }); %>

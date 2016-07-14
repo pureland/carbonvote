@@ -1,14 +1,15 @@
 {
   "dbConfig": "redis://localhost:6379/2",
   "web3Config": "http://localhost:8545",
-  "listenPort": "8080",
-  "startBlockNumber": "4170",
-  "option_sum":"3",
+  "listenPort": "3030",
+  "startBlockNumber": "0",
+  "option_sum":"5",
   "option_address":{
-  "op1": "0x48d42693d219029a42d69bc3ccb62f6b05056d66",
-  "op2": "0xc46bf50bc2788bc51c26c337947a1aa9de83fff4",
-    "op3": "0xad35cd9ecedb00317be8ded02a6d08684cfe33a1"
+  "op1": "0x37dc85ae239ec39556ae7cc35a129698152afe3c",
+  "op2": "0xc7784403f00a1b6cffd1768874a1650a7c969622",
+    "op3": "0x0a6ffcc9aee581c76e3110c93f48f8d078dce645"
   },
+  "color":['#99CC66', '#FF6666','#0F6666','#2F6666','#4F6666'],
   "blackList": {
     "Yunbi": "0xd94c9ff168dc6aebf9b6cc86deff54f3fb0afc33",
     "Kraken": "0x2910543af39aba0cd09dbb2d50200b3e800a63d2",
