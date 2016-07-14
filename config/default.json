@@ -27,6 +27,7 @@
     "VoteAmountTable":"VoteAmountTable-",
     "AccountVoteTable":"VoteAccountTable-",
     "TxSet":"TxSet-",
-    "AccountBalance":"AccountBalance-"
+    "AccountBalance":"AccountBalance-",
+    "accountBalanceGetBlock":"accountBalanceGetBlock"
 
 }
