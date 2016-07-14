@@ -5,9 +5,10 @@ function createChart(arr_name,arr_percent) {
   {
     arr.push({
       name:arr_name[i],
-      y:arr_percent[i]
+      y:Number(arr_percent[i])
     })
   }
+  console.log(arr)
   new Highcharts.Chart({
     chart: {
       renderTo: 'CarbonvoteChart',
@@ -36,12 +37,17 @@ function createChart(arr_name,arr_percent) {
         showInLegend: true
       }
     },
-    series: arr,
-    colors: ['#99CC66', '#FF6666'],
+    series: [{
+      name: 'Brands',
+      colorByPoint: true,
+      data: arr
+    }],
+    colors: ['#99CC66', '#FF6666','#0F6666'],
   })
 }
 
 function ajaxLoad(url, callback) {
+  console.log("ajaxLoad function")
   var xmlhttp = new XMLHttpRequest();
 
   xmlhttp.onreadystatechange = function() {
@@ -71,12 +77,13 @@ function ajaxLoad(url, callback) {
     console.log("chart data",data)
     var arr =Object.keys(data).map(key => data[key])
     for(let i=0;i<arr.length;i++)
-      totalvote+=arr[i]
-    
+      totalvote+=Number(arr[i])
+    console.log(totalvote)
     for(let i=0;i<arr.length;i++){
       arr_per.push(Number(arr[i] / totalvote * 100).toFixed())
     }
-    console.log(arr)
+    console.log("arr:  ",arr)
+    console.log(Object.keys(data))
     createChart(Object.keys(data),arr_per)
   })
 })()
