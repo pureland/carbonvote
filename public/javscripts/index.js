@@ -1,4 +1,13 @@
-function createChart(yes, no) {
+console.log("public/index.js")
+function createChart(arr_name,arr_percent) {
+  var arr=new Array
+  for(let i=0;i<arr_name.length;i++)
+  {
+    arr.push({
+      name:arr_name[i],
+      y:arr_percent[i]
+    })
+  }
   new Highcharts.Chart({
     chart: {
       renderTo: 'CarbonvoteChart',
@@ -7,6 +16,7 @@ function createChart(yes, no) {
       plotShadow: false,
       type: 'pie'
     },
+
     credits: {
       enabled: false
     },
@@ -26,17 +36,7 @@ function createChart(yes, no) {
         showInLegend: true
       }
     },
-    series: [{
-      name: 'Brands',
-      colorByPoint: true,
-      data: [{
-        name: 'YES',
-        y: yes
-      }, {
-        name: 'NO',
-        y: no
-      }]
-    }],
+    series: arr,
     colors: ['#99CC66', '#FF6666'],
   })
 }
@@ -63,14 +63,20 @@ function ajaxLoad(url, callback) {
 }
 
 (function() {
+  console.log("ajaxLoad")
   ajaxLoad('/vote', function(res) {
+      var arr_per =new Array
+    var totalvote=0
     var data = JSON.parse(res)
-    var yesVote = Number(data.yes)
-    var noVote  = Number(data.no)
-
-    var yes = Number(((yesVote / (yesVote + noVote)) * 100).toFixed())
-    var no = 100 - yes
-
-    createChart(yes, no)
+    console.log("chart data",data)
+    var arr =Object.keys(data).map(key => data[key])
+    for(let i=0;i<arr.length;i++)
+      totalvote+=arr[i]
+    
+    for(let i=0;i<arr.length;i++){
+      arr_per.push(Number(arr[i] / totalvote * 100).toFixed())
+    }
+    console.log(arr)
+    createChart(Object.keys(data),arr_per)
   })
 })()

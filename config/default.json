@@ -1,16 +1,13 @@
 {
-  "dbConfig": "redis://localhost:6379/1",
+  "dbConfig": "redis://localhost:6379/2",
   "web3Config": "http://localhost:8545",
   "listenPort": "8080",
-  "startBlockNumber": "3800",
+  "startBlockNumber": "4170",
   "option_sum":"3",
-  "option_prefix":"op",
-  "accountVoteKey":"accountVoteKey",
-  "amountHashTable":"amountHashTable",
   "option_address":{
   "op1": "0x48d42693d219029a42d69bc3ccb62f6b05056d66",
   "op2": "0xc46bf50bc2788bc51c26c337947a1aa9de83fff4",
-    "op3": "0xc46bf50bc2788bc51c26c337947a1aa9de83fff4"
+    "op3": "0xad35cd9ecedb00317be8ded02a6d08684cfe33a1"
   },
   "blackList": {
     "Yunbi": "0xd94c9ff168dc6aebf9b6cc86deff54f3fb0afc33",
@@ -23,5 +20,13 @@
     "Shapeshift2": "0x9e6316f44baeeee5d41a1070516cc5fa47baf227",
     "f2pool": "0x61c808d82a3ac53231750dadc13c777b59310bd9",
     "DwarfPool1": "0x2a65aca4d5fc5b5c859090a6c34d164135398226"
-  }
+  },
+
+    "option_prefix":"op",
+    "TxList":"TxList-",
+    "VoteAmountTable":"VoteAmountTable-",
+    "AccountVoteTable":"VoteAccountTable-",
+    "TxSet":"TxSet-",
+    "AccountBalance":"AccountBalance-"
+
 }
