@@ -41,81 +41,33 @@
     </div>
 
     <div class="address">
-      <p class="op1"><strong>op1:</strong> <a class="" target="_blank" href="http://etherscan.io/address/<%= option_address.op1 %>"><code><%= yesContractAddress %></code></a></p>
-      <p class="op2"><strong>op2 NO:</strong> <a class="" target="_blank" href="http://etherscan.io/address/<%= option_address.op2 %>"><code><%= noContractAddress %></code></a></p>
-      <p class="op2"><strong>op2 NO:</strong> <a class="" target="_blank" href="http://etherscan.io/address/<%= option_address.op3 %>"><code><%= noContractAddress %></code></a></p>
+      <% for (let i=1;i<=option_address.length;i++){
+      var op_str='op'+i%>
+      <p class="op1"><strong><%= op_str %>:</strong> <a class="" target="_blank" href="http://etherscan.io/address/<%= option_address[i-1] %>"><code><%= option_address[i-1] %></code></a>    Ether: <%= voteAmount[op_str] %></p>
+      <%}%>
     </div>
-
-    <div class="status">
-      <div class="item">
-        <h2 class="op1">"op1"</h2>
-        <p class="amount">Ether: <%= voteAmount[0] %></p>
-      </div>
-
-      <div class="item">
-        <h2 class="op2">"op2"</h2>
-        <p class="amount">Ether: <%= voteAmount[1] %></p>
-      </div>
-      <div class="item">
-        <h2 class="op3">"op3"</h2>
-        <p class="amount">Ether: <%= voteAmount[2] %></p>
-      </div>
-    </div>
-
     <a href="https://github.com/consenlabs/carbonvote"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
   </header>
 
   <article class="rhythm">
     <h3 class='title'>Last Block: <%= lastBlock %></h3>
   </article>
-
   <div class="CarbonvoteChart-wrapper">
     <div id="CarbonvoteChart"></div>
   </div>
-
   <section class="transactions">
+    <%for(let i=0;i<option_address.length;i++){%>
     <nav class="yes">
       <ol>
-        <% TxArr[0].forEach(function(tx) { %>
+        <% voteTxList[i].forEach(function(tx) { %>
         <li><a class="hash" target="_blank" href="http://etherscan.io/tx/<%= tx %>"><%= tx %></a></li>
         <% }); %>
       </ol>
     </nav>
-
-    <nav class="no">
-      <ol>
-        <% TxArr[1].forEach(function(tx) { %>
-        <li><a class="hash" target="_blank" href="http://etherscan.io/tx/<%= tx %>"><%= tx %></a></li>
-        <% }); %>
-      </ol>
-    </nav>
-    <nav class="no">
-      <ol>
-        <% TxArr[2].forEach(function(tx) { %>
-        <li><a class="hash" target="_blank" href="http://etherscan.io/tx/<%= tx %>"><%= tx %></a></li>
-        <% }); %>
-      </ol>
-    </nav>
+    <%}%>
   </section>
 
-<!--  <div class="view-more">
-    <% if (yesTx.length) { %>
-    <a class="transactions-more" target="_blank" href="http://etherscan.io/address/<%= yesContractAddress %>">View More</a>
-    <% } %>
 
-    <% if (noTx.length) { %>
-    <a class="transactions-more" target="_blank" href="http://etherscan.io/address/<%= noContractAddress %>">View More</a>
-    <% } %>
-  </div>
-
-  <article class="rhythm" id="">
-    <h3 class="title">Accounts filtered (Exchange's withdraw address)</h3>
-    <ul>
-      <% for (let key of Object.keys(blackList)) { %>
-      <li><%= key %>: <a href="http://etherscan.io/address/<%= blackList[key] %>"><%= blackList[key] %></a></li>
-
-      <% } %>
-    </ul>-->
   <article class="rhythm" id="">
 
   <article class="rhythm" id="">

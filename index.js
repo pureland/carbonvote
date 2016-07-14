@@ -1,5 +1,5 @@
 const config = require('config')
-const redis  = require("redis").createClient(config.dbConfig)
+const redis  = require("redis").createClient(6379,"127.0.0.1")
 const Node   = require(__dirname + '/lib/node')
 const Web    = require(__dirname + '/lib/web')
 
